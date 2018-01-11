@@ -21,6 +21,7 @@
     <!-- 扫描指定包下所有的接口 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.mvn.cn.mapper" />
+        <property name="annotationClass" value="com.mvn.cn.anotation.MyMapper"/>
     </bean>
 
 

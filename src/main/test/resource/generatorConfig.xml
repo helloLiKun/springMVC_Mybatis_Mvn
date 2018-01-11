@@ -20,7 +20,7 @@
 		<javaClientGenerator targetPackage="com.mvn.cn.mapper"
 							 targetProject="src/main/java" type="XMLMAPPER" />
 
-		<table tableName="SYS_USER" domainObjectName="User">
+		<table tableName="T_PERMISSION_TREE" domainObjectName="PermissionTree">
 
 		</table>
 
