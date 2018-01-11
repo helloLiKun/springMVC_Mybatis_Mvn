@@ -2,7 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:util="http://www.springframework.org/schema/util"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <util:properties id="jdbc" location="classpath:jdbc.properties"></util:properties>
     <bean id="ds" class="org.apache.commons.dbcp.BasicDataSource">
@@ -18,11 +19,20 @@
         <property name="mapperLocations" value="classpath:xml/*.xml" />
     </bean>
 
-    <!-- 扫描指定包下所有的接口 -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.mvn.cn.mapper" />
-        <property name="annotationClass" value="com.mvn.cn.anotation.MyMapper"/>
+    <!-- 方式一：扫描指定包下所有的接口 -->
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="com.mvn.cn.mapper" />-->
+        <!--<property name="annotationClass" value="com.mvn.cn.anotation.MyMapper"/>-->
+    <!--</bean>-->
+
+
+    <!--方式二：定义SqlSessionTemplate -->
+    <bean id="sqlSessionTemplate"
+          class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory"/>
     </bean>
+    <!-- 注解扫描 -->
+    <context:component-scan base-package="com.mvn.cn"/>
 
 
 

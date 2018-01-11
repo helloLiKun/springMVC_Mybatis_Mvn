@@ -1,5 +1,6 @@
 package user;
 
+import com.mvn.cn.dao.UserDao;
 import com.mvn.cn.entity.PermissionTree;
 import com.mvn.cn.entity.PermissionTreeExample;
 import com.mvn.cn.entity.User;
@@ -26,9 +27,13 @@ public class TestUser {
 
     @Test
     public void testUser(){
-        UserMapper userMapper=ctx.getBean("userMapper",UserMapper.class);
+//        UserMapper userMapper=ctx.getBean("userMapper",UserMapper.class);
+//        UserExample userExample=new UserExample();
+//        List<User> list=userMapper.selectByExample(userExample);
+
+        UserDao userDao=ctx.getBean("userDao",UserDao.class);
         UserExample userExample=new UserExample();
-        List<User> list=userMapper.selectByExample(userExample);
+        List<User> list=userDao.selectByExample(userExample);
         System.out.println(list.size());
     }
 
