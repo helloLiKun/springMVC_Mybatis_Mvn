@@ -20,19 +20,19 @@
     </bean>
 
     <!-- 方式一：扫描指定包下所有的接口 -->
-    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
-        <!--<property name="basePackage" value="com.mvn.cn.mapper" />-->
-        <!--<property name="annotationClass" value="com.mvn.cn.anotation.MyMapper"/>-->
-    <!--</bean>-->
-
-
-    <!--方式二：定义SqlSessionTemplate -->
-    <bean id="sqlSessionTemplate"
-          class="org.mybatis.spring.SqlSessionTemplate">
-        <constructor-arg index="0" ref="sqlSessionFactory"/>
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.mvn.cn.mapper" />
+        <property name="annotationClass" value="com.mvn.cn.anotation.MyMapper"/>
     </bean>
-    <!-- 注解扫描 -->
-    <context:component-scan base-package="com.mvn.cn"/>
+
+
+    <!--&lt;!&ndash;方式二：定义SqlSessionTemplate &ndash;&gt;-->
+    <!--<bean id="sqlSessionTemplate"-->
+          <!--class="org.mybatis.spring.SqlSessionTemplate">-->
+        <!--<constructor-arg index="0" ref="sqlSessionFactory"/>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash; 注解扫描 &ndash;&gt;-->
+    <!--<context:component-scan base-package="com.mvn.cn"/>-->
 
 
 

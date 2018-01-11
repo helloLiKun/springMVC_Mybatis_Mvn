@@ -27,22 +27,25 @@ public class TestUser {
 
     @Test
     public void testUser(){
-//        UserMapper userMapper=ctx.getBean("userMapper",UserMapper.class);
-//        UserExample userExample=new UserExample();
-//        List<User> list=userMapper.selectByExample(userExample);
-
-        UserDao userDao=ctx.getBean("userDao",UserDao.class);
+        //方式一：通过MapperScannerConfigurer扫描接口
+        UserMapper userMapper=ctx.getBean("userMapper",UserMapper.class);
         UserExample userExample=new UserExample();
-        List<User> list=userDao.selectByExample(userExample);
+        List<User> list=userMapper.selectByExample(userExample);
+
+        //方式二：通过注入SqlSessionTemplate
+//        UserDao userDao=ctx.getBean("userDao",UserDao.class);
+//        UserExample userExample=new UserExample();
+//        List<User> list=userDao.selectByExample(userExample);
+
         System.out.println(list.size());
     }
 
-    @Test
-    public void testPermissionTree(){
-        PermissionTreeMapper permissionTreeMapper=ctx.getBean("permissionTreeMapper",PermissionTreeMapper.class);
-        PermissionTreeExample permissionTreeExample=new PermissionTreeExample();
-        List<PermissionTree> permissionTrees=permissionTreeMapper.selectByExample(permissionTreeExample);
-        System.out.println(permissionTrees.size());
-    }
+//    @Test
+//    public void testPermissionTree(){
+//        PermissionTreeMapper permissionTreeMapper=ctx.getBean("permissionTreeMapper",PermissionTreeMapper.class);
+//        PermissionTreeExample permissionTreeExample=new PermissionTreeExample();
+//        List<PermissionTree> permissionTrees=permissionTreeMapper.selectByExample(permissionTreeExample);
+//        System.out.println(permissionTrees.size());
+//    }
 
 }
