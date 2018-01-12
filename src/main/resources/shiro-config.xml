@@ -10,7 +10,7 @@
     <!-- Shiro Filter 拦截器相关配置 -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <!-- securityManager -->
-        <!--<property name="securityManager" ref="securityManager" />-->
+        <property name="securityManager" ref="securityManager" />
         <!-- 登录路径 -->
         <property name="loginUrl" value="/toLogin" />
         <!-- 用户访问无权限的链接时跳转此页面  -->
@@ -42,9 +42,5 @@
 
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
 
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/"/>
-        <property name="suffix" value=".jsp"></property>
-    </bean>
 
 </beans>

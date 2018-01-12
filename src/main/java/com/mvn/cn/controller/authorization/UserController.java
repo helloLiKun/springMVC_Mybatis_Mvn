@@ -29,10 +29,10 @@ public class UserController {
         } catch (AuthenticationException e) {//登录失败
             request.setAttribute("msg", "用户名和密码错误");
         }
-        return "login";
+        return "hello";
     }
     @RequestMapping("toLogin")
     public String toLogin(){
-        return "login";
+        return "hello";
     }
 }
