@@ -20,7 +20,7 @@
 		<javaClientGenerator targetPackage="com.mvn.cn.mapper.authorization"
 							 targetProject="src/main/java" type="XMLMAPPER" />
 
-		<table tableName="T_USER" domainObjectName="User">
+		<table tableName="T_ROLE" domainObjectName="Role">
 
 		</table>
 

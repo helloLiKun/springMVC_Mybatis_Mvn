@@ -1,12 +1,8 @@
 package user;
 
-import com.mvn.cn.dao.UserDao;
-import com.mvn.cn.entity.PermissionTree;
-import com.mvn.cn.entity.PermissionTreeExample;
-import com.mvn.cn.entity.User;
-import com.mvn.cn.entity.UserExample;
-import com.mvn.cn.mapper.PermissionTreeMapper;
-import com.mvn.cn.mapper.UserMapper;
+import com.mvn.cn.entity.authorization.User;
+import com.mvn.cn.entity.authorization.UserExample;
+import com.mvn.cn.mapper.authorization.UserMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

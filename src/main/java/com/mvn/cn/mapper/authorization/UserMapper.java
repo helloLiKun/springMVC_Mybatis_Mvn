@@ -1,10 +1,11 @@
 package com.mvn.cn.mapper.authorization;
 
+import com.mvn.cn.anotation.MyMapper;
 import com.mvn.cn.entity.authorization.User;
 import com.mvn.cn.entity.authorization.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
-
+@MyMapper
 public interface UserMapper {
     User selectByPrimaryKey(String id);
     /**

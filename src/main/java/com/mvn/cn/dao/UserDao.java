@@ -1,7 +1,5 @@
 package com.mvn.cn.dao;
 
-import com.mvn.cn.entity.User;
-import com.mvn.cn.entity.UserExample;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 

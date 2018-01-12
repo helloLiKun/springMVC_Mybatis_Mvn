@@ -1,42 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
-        http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-
-    <!--&lt;!&ndash; 使用spring组件扫描@service  &ndash;&gt;-->
-    <!--<context:component-scan base-package="com"/>-->
-    <!-- 自定义域realm -->
-    <bean id="custom_Realm" class="com.mvn.cn.authorization.CustomRealm"></bean>
-    <!-- 安全管理器  ref对象-->
-    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
-        <property name="realm" ref="custom_Realm"/>
-    </bean>
-    <!-- shiro filter -->
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="com.mvn.cn"/>
+    <!-- 开启注解 -->
+    <mvc:annotation-driven/>
+    <!-- Shiro Filter 拦截器相关配置 -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
-        <!-- 安全管理器必须的 -->
-        <property name="securityManager" ref="securityManager"/>
-        <!-- 身份认证失败   认证提交的地址 -->
-        <property name="loginUrl" value="/index.jsp"/>
-        <!-- 权限认证失败    没有权限认证提交的地址 -->
-        <property name="unauthorizedUrl" value="/unauthorized.jsp"/>
-        <!-- Shiro连接约束配置,即过滤链的定义 -->
+        <!-- securityManager -->
+        <!--<property name="securityManager" ref="securityManager" />-->
+        <!-- 登录路径 -->
+        <property name="loginUrl" value="/toLogin" />
+        <!-- 用户访问无权限的链接时跳转此页面  -->
+        <property name="unauthorizedUrl" value="/unauthorizedUrl.jsp" />
+        <!-- 过滤链定义 -->
         <property name="filterChainDefinitions">
             <value>
-                <!-- 对静态资源设置匿名访问 -->
-                /login = anon
-                <!-- /** = authc 所有url都必须认证通过才可以访问 -->
-                /admin* = authc
+                /loginin=anon
+                /toLogin=anon
+                /css/**=anon
+                /html/**=anon
+                /images/**=anon
+                /js/**=anon
+                /upload/**=anon
+                <!-- /userList=roles[admin] -->
+                /userList=authc,perms[/userList]
+                /toDeleteUser=authc,perms[/toDeleteUser]
+                /** = authc
             </value>
         </property>
     </bean>
-    <!-- Shiro生命周期处理器 -->
-    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"></bean>
-    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
-        <property name="securityManager" ref="securityManager"/>
+
+    <!-- securityManager -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="myRealm" />
+    </bean>
+     <!--自定义Realm实现 -->
+    <bean id="myRealm" class="com.mvn.cn.authorization.CustomRealm" />
+
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".jsp"></property>
     </bean>
 
 </beans>
