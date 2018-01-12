@@ -13,11 +13,11 @@ import java.util.List;
  */
 @Repository
 public class UserDao {
-    @Resource
-    SqlSessionTemplate sqlSessionTemplate;
-
-    public List<User> selectByExample(UserExample example){
-        return sqlSessionTemplate.selectList("com.mvn.cn.mapper.UserMapper.selectByExample",example);
-    }
+//    @Resource
+//    SqlSessionTemplate sqlSessionTemplate;
+//
+//    public List<User> selectByExample(UserExample example){
+//        return sqlSessionTemplate.selectList("com.mvn.cn.mapper.UserMapper.selectByExample",example);
+//    }
 
 }
