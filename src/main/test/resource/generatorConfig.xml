@@ -13,14 +13,14 @@
 		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
 			connectionURL="jdbc:oracle:thin:@192.168.169.200:1521:orcl" userId="K_TEST" password="K_TEST_9"/>
 
-		<javaModelGenerator targetPackage="com.mvn.cn.entity"
+		<javaModelGenerator targetPackage="com.mvn.cn.entity.authorization"
 							targetProject="src/main/java" />
-		<sqlMapGenerator targetPackage="xml"
+		<sqlMapGenerator targetPackage="mapperXml.authorization"
 						 targetProject="src/main/resources" />
-		<javaClientGenerator targetPackage="com.mvn.cn.mapper"
+		<javaClientGenerator targetPackage="com.mvn.cn.mapper.authorization"
 							 targetProject="src/main/java" type="XMLMAPPER" />
 
-		<table tableName="T_PERMISSION_TREE" domainObjectName="PermissionTree">
+		<table tableName="T_USER" domainObjectName="User">
 
 		</table>
 
