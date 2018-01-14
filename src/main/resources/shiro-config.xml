@@ -18,8 +18,8 @@
         <!-- 过滤链定义 -->
         <property name="filterChainDefinitions">
             <value>
-                /loginin=anon
-                /toLogin=anon
+                /base/authBase/user/toLogin=anon
+                /base/authBase/user/login=anon
                 /css/**=anon
                 /html/**=anon
                 /images/**=anon

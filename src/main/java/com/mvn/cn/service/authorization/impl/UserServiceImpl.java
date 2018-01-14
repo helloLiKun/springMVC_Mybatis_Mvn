@@ -28,6 +28,7 @@ public class UserServiceImpl implements UserService {
     public User getUserByName(String name) {
         UserExample userExample=new UserExample();
         UserExample.Criteria c=userExample.createCriteria();
+        c.andNameEqualTo(name);
         List<User> list=userMapper.selectByExample(userExample);
         if(list!=null && list.size()>0){
             return list.get(0);

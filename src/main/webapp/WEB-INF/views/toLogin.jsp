@@ -11,7 +11,11 @@
     <title>Title</title>
 </head>
 <body>
-<h1>hello</h1>
-<h1>${msg}</h1>
+<h3>登录</h3>
+<form action="${loginUrl}">
+    <input name="username"/>
+    <input name="password"/>
+    <button type="submit">提交</button>
+</form>
 </body>
 </html>
