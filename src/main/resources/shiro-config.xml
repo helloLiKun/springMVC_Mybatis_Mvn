@@ -12,7 +12,7 @@
         <!-- securityManager -->
         <property name="securityManager" ref="securityManager" />
         <!-- 登录路径 -->
-        <property name="loginUrl" value="/toLogin" />
+        <property name="loginUrl" value="/base/authBase/user/toLogin" />
         <!-- 用户访问无权限的链接时跳转此页面  -->
         <property name="unauthorizedUrl" value="/unauthorizedUrl.jsp" />
         <!-- 过滤链定义 -->
