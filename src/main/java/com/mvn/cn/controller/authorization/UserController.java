@@ -47,6 +47,10 @@ public class UserController implements UserMapping{
             return "toLogin";
         }
     }
+    @RequestMapping(UNAUTHORIZED)
+    public String unauthorized(){
+        return "unauthorized";
+    }
 
     @RequestMapping(TEST1)
     public String test1(){

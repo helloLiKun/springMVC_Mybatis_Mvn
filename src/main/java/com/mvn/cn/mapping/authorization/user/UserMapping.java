@@ -9,6 +9,7 @@ public interface UserMapping  extends AuthBase {
     String USERBASE=AUTHBASE+"/user";
     String TOLOGIN=USERBASE+"/toLogin";
     String LOGIN=USERBASE+"/login";
+    String UNAUTHORIZED=USERBASE+"/unauthorized";
     String TEST1=USERBASE+"/test1";
     String TEST2=USERBASE+"/test2";
     String TEST3=USERBASE+"/test3";

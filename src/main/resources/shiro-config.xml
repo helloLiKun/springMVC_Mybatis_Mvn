@@ -14,7 +14,7 @@
         <!-- 登录路径 -->
         <property name="loginUrl" value="/base/authBase/user/toLogin" />
         <!-- 用户访问无权限的链接时跳转此页面  -->
-        <property name="unauthorizedUrl" value="/unauthorizedUrl.jsp" />
+        <property name="unauthorizedUrl" value="/base/authBase/user/unauthorized" />
         <!-- 过滤链定义 -->
         <property name="filterChainDefinitions">
             <value>
