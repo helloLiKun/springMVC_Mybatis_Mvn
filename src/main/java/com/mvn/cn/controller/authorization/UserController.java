@@ -1,5 +1,6 @@
 package com.mvn.cn.controller.authorization;
 
+import com.mvn.cn.entity.authorization.User;
 import com.mvn.cn.mapping.authorization.user.UserMapping;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -36,11 +37,27 @@ public class UserController implements UserMapping{
 
         try {
             currentUser.login(token);
+            User user=new User();
+            user.setName(username);
+            request.setAttribute("user",user);
             return "welcome";
 
         } catch (AuthenticationException e) {//登录失败
             request.setAttribute("msg", "用户名和密码错误");
             return "toLogin";
         }
+    }
+
+    @RequestMapping(TEST1)
+    public String test1(){
+        return "test1";
+    }
+    @RequestMapping(TEST2)
+    public String test2(){
+        return "test2";
+    }
+    @RequestMapping(TEST3)
+    public String test3(){
+        return "test3";
     }
 }

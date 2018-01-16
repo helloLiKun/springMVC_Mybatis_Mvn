@@ -1,7 +1,9 @@
 package user;
 
+import com.mvn.cn.entity.authorization.Permission;
 import com.mvn.cn.entity.authorization.User;
 import com.mvn.cn.entity.authorization.UserExample;
+import com.mvn.cn.mapper.authorization.PermissionMapper;
 import com.mvn.cn.mapper.authorization.UserMapper;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,12 +38,15 @@ public class TestUser {
         System.out.println(list.size());
     }
 
-//    @Test
-//    public void testPermissionTree(){
-//        PermissionTreeMapper permissionTreeMapper=ctx.getBean("permissionTreeMapper",PermissionTreeMapper.class);
-//        PermissionTreeExample permissionTreeExample=new PermissionTreeExample();
-//        List<PermissionTree> permissionTrees=permissionTreeMapper.selectByExample(permissionTreeExample);
-//        System.out.println(permissionTrees.size());
-//    }
+    @Test
+    public void testPermission(){
+        Permission p=new Permission();
+        p.setId("1");
+        p.setName("test1");
+        p.setValue("/base/authBase/user/test1");
+        PermissionMapper permissionMapper=ctx.getBean("permissionMapper",PermissionMapper.class);
+        permissionMapper.insert(p);
+
+    }
 
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration>
-	<classPathEntry location="D:\java\INTELLIJ IDEA\setUp\IntelliJ IDEA 2017.3.2\ojdbc6-11.2.0.1.0.jar" />
+	<classPathEntry location="D:\work\oracle_client\classes12.jar" />
 	<context id="id" targetRuntime="MyBatis3"
 		defaultModelType="flat">
 		<!-- 注释生成器 -->
@@ -11,7 +11,7 @@
 		</commentGenerator>
 
 		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
-			connectionURL="jdbc:oracle:thin:@localhost:1521:orcl" userId="K_TEST" password="K_TEST_9"/>
+			connectionURL="jdbc:oracle:thin:@192.168.169.200:1521:orcl" userId="K_TEST" password="K_TEST_9"/>
 
 		<javaModelGenerator targetPackage="com.mvn.cn.entity.authorization"
 							targetProject="src/main/java" />
@@ -20,7 +20,7 @@
 		<javaClientGenerator targetPackage="com.mvn.cn.mapper.authorization"
 							 targetProject="src/main/java" type="XMLMAPPER" />
 
-		<table tableName="T_ROLE" domainObjectName="Role">
+		<table tableName="T_USER_ROLE_TAB" domainObjectName="UserRole">
 
 		</table>
 

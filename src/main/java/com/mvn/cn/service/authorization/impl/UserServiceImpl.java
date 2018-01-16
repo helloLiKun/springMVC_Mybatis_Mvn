@@ -41,11 +41,11 @@ public class UserServiceImpl implements UserService {
         List<Role> roles=new ArrayList<Role>();
         UserRoleExample userRoleExample=new UserRoleExample();
         UserRoleExample.Criteria c=userRoleExample.createCriteria();
-        c.andUserIdEqualTo(id);
+        c.andUIdEqualTo(id);
         List<UserRole> list=userRoleMapper.selectByExample(userRoleExample);
         if(list!=null && list.size()>0){
             for(UserRole ur:list){
-                Role role=roleMapper.selectByPrimaryKey(ur.getRoleId());
+                Role role=roleMapper.selectByPrimaryKey(ur.getrId());
                 if(role!=null){
                     roles.add(role);
                 }

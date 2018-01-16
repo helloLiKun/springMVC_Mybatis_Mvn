@@ -18,6 +18,7 @@
         <!-- 过滤链定义 -->
         <property name="filterChainDefinitions">
             <value>
+                /index.js=anon
                 /base/authBase/user/toLogin=anon
                 /base/authBase/user/login=anon
                 /css/**=anon
@@ -25,9 +26,9 @@
                 /images/**=anon
                 /js/**=anon
                 /upload/**=anon
-                <!-- /userList=roles[admin] -->
-                /userList=authc,perms[/userList]
-                /toDeleteUser=authc,perms[/toDeleteUser]
+                /base/authBase/user/test1=authc,roles[normal]
+                /base/authBase/user/test2=authc,perms[test2]
+                /base/authBase/user/test3=authc,roles[admin]
                 /** = authc
             </value>
         </property>
